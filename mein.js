@@ -68,8 +68,8 @@ var arena_1 = L.tileLayer.wms("http://localhost:8080/geoserver/perkebunanwebgis/
 
 // Overlay layers untuk kontrol layer
 const overlayLayers = {     
-    // "arena": arena,
-    // "arena_1": arena_1,
+    //"arena": arena,
+    //"arena_1": arena_1,
 };
 
 // Tambahkan kontrol layer ke peta
