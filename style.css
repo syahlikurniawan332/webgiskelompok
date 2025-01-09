@@ -1,0 +1,72 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+  }
+  
+  .header {
+    grid-area: header;
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    background: #f8f9fa;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .main-content {
+    grid-area: main;
+    position: relative;
+  }
+  
+  .map-container {
+    height: calc(100% - 50px);
+    width: 100%;
+    background: #e9ecef;
+  }
+  
+  .map-tools {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .map-tools button {
+    padding: 8px 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .map-tools button:hover {
+    background: #0056b3;
+  }
+  
+  .footer {
+    grid-area: footer;
+    background: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  

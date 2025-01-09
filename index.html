@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGIS Arena Olahraga</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+    <!-- Container utama -->
+    <div class="flex flex-col h-screen">
+
+        <!-- Bagian header -->
+        <header class="bg-blue-900 text-white p-8 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-3xl font-semibold tracking-tight">WebGIS Arena Olahraga</h1>
+                <nav class="hidden md:flex space-x-8 text-sm text-white">
+                    <a href="#about" class="hover:text-blue-200">Tentang</a>
+                    <a href="#features" class="hover:text-blue-200">Fitur</a>
+                    <a href="#contact" class="hover:text-blue-200">Kontak</a>
+                </nav>
+                <div class="md:hidden">
+                    <button class="text-white text-2xl">☰</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Bagian hero (gambar besar dan pesan utama) -->
+        <section class="flex-1 flex flex-col items-center justify-center bg-gradient-to-r from-blue-800 to-blue-600 text-white text-center py-20">
+            <h2 class="text-4xl font-bold mb-4">Temukan Arena Olahraga di Sekitarmu</h2>
+            <p class="text-lg mb-6">Peta interaktif untuk memudahkan pencarian dan pemetaan fasilitas olahraga di area lokal.</p>
+            <a href="#contact" class="bg-white text-blue-900 hover:bg-blue-100 px-6 py-3 rounded-lg text-lg font-medium">Hubungi Kami</a>
+        </section>
+
+        <!-- Bagian peta WebGIS -->
+        <section id="map-section" class="flex-1 bg-white">
+            <div class="container mx-auto">
+                <h3 class="text-3xl font-semibold text-center text-blue-900 mb-8">Peta Arena Olahraga</h3>
+                <div id="map" class="w-full h-96 rounded-lg shadow-lg border-4 border-blue-800"></div>
+            </div>
+        </section>
+
+        <!-- Bagian tentang kami -->
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto text-center">
+                <h3 class="text-3xl font-semibold mb-8 text-blue-900">Tentang WebGIS Arena Olahraga</h3>
+                <p class="text-lg text-gray-700 mb-6">WebGIS Arena Olahraga membantu pengguna untuk menemukan berbagai arena olahraga, baik yang bersifat umum maupun khusus. Peta interaktif memudahkan pencarian berdasarkan lokasi dan jenis fasilitas.</p>
+                <p class="text-lg text-gray-700">Dengan teknologi WebGIS dan GeoServer, kami memberikan pengalaman yang akurat dan mudah diakses untuk pencarian fasilitas olahraga di sekitar Anda.</p>
+            </div>
+        </section>
+
+        <!-- Bagian fitur -->
+        <section id="features" class="py-16 bg-gray-100">
+            <div class="container mx-auto text-center">
+                <h3 class="text-3xl font-semibold mb-8 text-blue-900">Fitur WebGIS Arena Olahraga</h3>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold text-blue-900 mb-4">Pemetaan Interaktif</h4>
+                        <p class="text-gray-700">Peta interaktif yang memungkinkan pengguna untuk menelusuri lokasi arena olahraga di sekitar mereka dengan mudah.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold text-blue-900 mb-4">Filter Berdasarkan Jenis Olahraga</h4>
+                        <p class="text-gray-700">Pengguna dapat memfilter arena berdasarkan jenis olahraga yang tersedia seperti sepak bola, basket, tenis, dan lainnya.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-semibold text-blue-900 mb-4">Informasi Fasilitas</h4>
+                        <p class="text-gray-700">Setiap arena memiliki informasi terkait fasilitas yang tersedia seperti kapasitas, harga sewa, dan kontak untuk pemesanan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian kontak -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto text-center">
+                <h3 class="text-3xl font-semibold mb-8 text-blue-900">Kontak Kami</h3>
+                <p class="text-lg text-gray-700 mb-6">Jika Anda tertarik untuk bekerja sama, memberikan informasi lebih lanjut tentang arena olahraga Anda, atau memiliki pertanyaan, hubungi kami di bawah ini.</p>
+                <a href="mailto:contact@arenaolahraga.com" class="bg-blue-900 text-white hover:bg-blue-700 px-6 py-3 rounded-lg text-lg font-medium">Kirim Email</a>
+            </div>
+        </section>
+
+        <!-- Bagian footer -->
+        <footer class="bg-gray-900 text-white text-center py-6 mt-6">
+            <div class="container mx-auto">
+                <p>© 2025 WebGIS Arena Olahraga. Semua hak dilindungi.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Memanggil mein.js -->
+    <script src="mein.js"></script>
+
+    <script>
+        // Inisialisasi peta menggunakan Leaflet
+        var map = L.map('map').setView([40.7128, -74.0060], 13); // Koordinat default (New York)
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Menambahkan marker (contoh lokasi arena olahraga)
+        var marker = L.marker([40.7128, -74.0060]).addTo(map);
+        marker.bindPopup("<b>Arena Olahraga NYC</b><br>Fasilitas olahraga untuk berbagai jenis olahraga.").openPopup();
+
+        // Menambahkan fitur drawing (polygon, polyline, marker)
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            draw: {
+                polyline: true,
+                polygon: true,
+                rectangle: true,
+                circle: true,
+                marker: true
+            },
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
+
+        // Event listener untuk saat menggambar objek
+        map.on('draw:created', function (e) {
+            var layer = e.layer;
+            drawnItems.addLayer(layer);
+        });
+    </script>
+
+</body>
+
+</html>

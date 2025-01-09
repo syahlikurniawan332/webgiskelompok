@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  geoserver:
+    image: kartoza/geoserver
+    container_name: geoserver_container
+    ports:
+      - "8080:8080"  # Port GeoServer diakses melalui localhost:8080
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  # Lokasi JRE dalam container
+      - JAVA_OPTS=-Xms512m -Xmx1024m                 # Konfigurasi JVM untuk performa
+    volumes:
+      - "C:/Program Files/Java/jre1.8.0_431:/usr/lib/jvm/java-8-openjdk-amd64"  # Path JRE dari host ke container
+      - "./data_dir:/opt/geoserver/data_dir"  # Direktori GeoServer data di host (opsional)
+
