@@ -40,7 +40,7 @@ const map = L.map('map', {
     // center: [2.100429, 99.827933],
     center: [5.179748956229851, 97.14093309151546],
     zoom: 13,                     // Zoom awal
-    layers: [peta3]               // Layer default
+    layers: [peta1]               // Layer default
 });
 
 // Base layers untuk kontrol layer
